@@ -1,7 +1,6 @@
 services:
   staticshort:
-    build:
-      context: .
+    image: ghcr.io/mawoka-myblock/staticshort
     environment:
       SR_REDIR_test: "/hi,/test,/"
       SR_REDIR_test__TARGET: https://g.co

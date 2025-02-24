@@ -65,7 +65,7 @@ impl RedirEntry {
         };
         let js_only_key = format!("{ENV_PREFIX}_{name}__JS_ONLY");
         let js_only = match env::var(&js_only_key) {
-            Ok(d) => match d.parse::<bool>() {
+            Ok(d) => match d.to_lowercase().parse::<bool>() {
                 Ok(d) => d,
                 Err(_) => return Err(ParseError::WrongFormat(js_only_key, "Boolean".to_string())),
             },
@@ -73,7 +73,7 @@ impl RedirEntry {
         };
         let preserve_params_key = format!("{ENV_PREFIX}_{name}__PRESERVE_PARAMS");
         let preserve_params = match env::var(&preserve_params_key) {
-            Ok(d) => match d.parse::<bool>() {
+            Ok(d) => match d.to_lowercase().parse::<bool>() {
                 Ok(d) => d,
                 Err(_) => {
                     return Err(ParseError::WrongFormat(
