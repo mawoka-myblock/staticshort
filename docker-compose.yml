@@ -1,0 +1,12 @@
+services:
+  staticshort:
+    build:
+      context: .
+    environment:
+      SR_REDIR_test: "/hi,/test,/"
+      SR_REDIR_test__TARGET: https://g.co
+      SR_REDIR_test__CODE: 307
+      SR_REDIR_test__JS_ONLY: "false"
+      SR_REDIR_test__PRESERVE_PARAMS: "true"
+    ports:
+      - 8080:8080
